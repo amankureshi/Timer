@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <div class="main-btn">
+        <h1 class="time">0</h1>
+        <button class="start">start</button>
+        <button class="stop">stop</button>
+        <button class="reset">reset</button>
+    </div>
+    <script>
+        const start = document.querySelector(".start");
+        const stop = document.querySelector(".stop");
+        const reset = document.querySelector(".reset");
+        const time = document.querySelector(".time");
+
+        let count = 0;
+        let isTimeRunning = false;
+
+        const timer = setInterval(() => {
+            if (isTimeRunning) {
+                count++;
+                time.textContent = count;
+            }
+        }, 1000);
+
+        start.addEventListener("click", () => {
+            isTimeRunning = true;
+        });
+
+        stop.addEventListener("click", () => {
+            isTimeRunning = false;
+        })
+        reset.addEventListener("click", () => {
+            isTimeRunning = false;
+            count = 0;
+            time.textContent = count;
+        })
+
+    </script>
+</body>
+
+</html>
